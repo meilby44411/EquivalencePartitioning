@@ -1,12 +1,14 @@
 import java.util.Scanner;
 
 public class CalculatorController {
+	protected double result;
 
 	public CalculatorController() {
 		double n1, n2;
 		String operation;
+		
 
-		InputReader inputreader = new InputReader();
+		InputReader inputreader = newInputReader();
 
 		n1 = inputreader.getN1();
 		n2 = inputreader.getN2();
@@ -14,24 +16,33 @@ public class CalculatorController {
 
 		switch (operation) {
 		case "+":
-			System.out.println("Your answer is " + (n1 + n2));
+			printResult(n1 + n2);
 			break;
 
 		case "-":
-			System.out.println("Your answer is " + (n1 - n2));
+			printResult(n1 - n2);
 			break;
 
 		case "/":
-			System.out.println("Your answer is " + (n1 / n2));
+			printResult(n1 / n2);
 			break;
 
 		case "*":
-			System.out.println("Your asnwer is " + (n1 * n2));
+			printResult(n1 * n2);
 			break;
 
 		default:
 			System.out.println("Je ne sais pas");
 
 		}
+	}
+
+	private void printResult(double result) {
+		this.result = result;
+		System.out.println("Your awnser is " + result);
+	}
+
+	protected InputReader newInputReader() {
+		return new InputReaderImpl();
 	}
 }
