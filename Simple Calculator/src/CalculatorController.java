@@ -2,20 +2,15 @@ import java.util.Scanner;
 
 public class CalculatorController {
 
-	double n1, n2;
-	String operation;
-	Scanner scannerObject = new Scanner(System.in);
-
 	public CalculatorController() {
-		System.out.println("Enter first number");
-		n1 = scannerObject.nextDouble();
+		double n1, n2;
+		String operation;
 
-		System.out.println("Enter second number");
-		n2 = scannerObject.nextDouble();
+		InputReader inputreader = new InputReader();
 
-		Scanner op = new Scanner(System.in);
-		System.out.println("Enter your operation");
-		operation = op.next();
+		n1 = inputreader.getN1();
+		n2 = inputreader.getN2();
+		operation = inputreader.getOperation();
 
 		switch (operation) {
 		case "+":
