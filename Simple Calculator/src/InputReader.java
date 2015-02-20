@@ -15,17 +15,26 @@ public class InputReader {
 	public InputReader() {
 		scanner = new Scanner(System.in);
 
-		
-		n1 = readDouble("Enter first number");			
-		n2 = readDouble("Enter second number");	
+		n1 = readDouble("Enter first number");
+		n2 = readDouble("Enter second number");
 
 		System.out.println("Enter your operation");
 		operation = scanner.next();
 
 	}
-	private double readDouble(String promt){
+
+	private double readDouble(String promt) {
 		System.out.println(promt);
-		return scanner.nextDouble();
+		double n;
+
+		if (scanner.hasNextDouble())
+			n = scanner.nextDouble();
+		else {
+			scanner.nextLine(); // discard current input
+			System.out.println("Invalid number");
+			n = readDouble(promt);
+		}
+		return n;
 
 	}
 
